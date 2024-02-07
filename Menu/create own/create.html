@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link rel="icon" href="../../logo.png" type="image/x-icon">
+
+	<title>My Website</title>
+	<link rel="stylesheet" type="text/css" href="create.css">
+  <script>
+
+  </script>
+</head>
+<body>
+	<div id=bar>
+    <a style="position:absolute;color:#ddd; top:10px;" href="../menu.php">Back</a>
+		<h1 style="text-align: center; margin-top:5px;">My Own Memo</h1>
+			</div>
+	<div class="container">
+		<div class="circle"></div>
+		<a href="canva/paint.html"><button class="primary-button">Draw custom art</button></a>
+		<a href="memo/text.html"><button class="secondary-button">create new text</button></a>
+	</div>
+	<div class="navigation">
+        <ul>
+          <li class="list active">
+            <a href="../menu.php">
+              <span class="icon"><image src="../home.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspHome</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../../my profile/viewprofile.php">
+              <span class="icon"><image src="../myprofile.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspprofile</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../logout.php">
+              <span class="icon"><image src="../logout.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbsplogout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  <script>
+        //add active class in selected tab
+        const list =document.querySelectorAll('.list');
+        function activeLink(){
+          list.forEach((item)=>
+          item.classList.remove('active'));
+          this.classList.add('active');
+
+        }
+        list.forEach((item)=>
+        item.addEventListener('click',activeLink))
+      </script>
+</body>
+</html>
+    

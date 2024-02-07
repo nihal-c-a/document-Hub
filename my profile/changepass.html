@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>change password</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../logo.png" type="image/x-icon">
+    <script>
+        function validatePass() {
+  var spanElement = document.getElementById("pspan");
+  var pass = document.getElementById("npass");
+  var str=new String(pass.value)
+  if (str.length<8) {
+    pass.setCustomValidity("Password must be of alteast 8 characters");
+    
+spanElement.innerHTML = "please enter atleast 8 characters";
+
+  } else {
+    pass.setCustomValidity("");
+    spanElement.innerHTML = "";
+  }
+}
+        </script>
+        <style>
+            *
+
+.navigation{
+    right: 0%;
+    top:0%;
+    position: absolute;
+    height: 100%;
+    width: 70px;
+    background: #23405c;
+    box-shadow: 10px 0 0 #4187f6;
+    /* border-left: 10px solid #2b343b; */
+    overflow-x: hidden;
+    transition: width 0.5s;
+}
+.navigation:hover
+{
+    width:300px;
+}
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding-left: 5px;
+    padding-top: 40px;
+
+}
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+
+}
+
+
+
+
+.navigation ul li a{
+    
+    align-content: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+}
+.navigation ul li .icon{
+position: relative;
+display: block;
+min-width: 60px;
+height: 60px;
+line-height: 35px;
+position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+text-align:center;
+
+}
+.navigation ul li .icon ion-icon
+{
+    position: relative;
+    font-size: 1.5em;
+    z-index: 1;
+
+}
+.navigation ul li .icon .title{
+    position: relative;
+    display: block;
+    padding-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    white-space: nowrap;
+}
+
+            </style>
+  </head>
+  <body>
+    <div class="bcenter">
+      <form action="updatepass.php" method="POST">
+        <div id="form2">
+          <p id="heading" style="color:red"><br>Password Reset<br><br></p>
+          <div class="input-container">
+            <input type="password" name="pass" id="pass" placeholder=" " required>
+            <label for="pass">Enter old password</label>
+          </div>
+          
+          <div class="input-container">
+            <input type="Password" name="npass" id="npass" placeholder=" " oninput="validatePass()" required>
+            <label for="pass">New Password</label>
+            <span class="my1Span" id="pspan"></span>
+          </div>
+         
+          <input type="submit" name="reset" value="change password" class="btn">
+          <p align="center"><a href="viewprofile.php">back</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="navigation">
+        <ul>
+          <li class="list active">
+            <a href="../Menu/menu.php" style="background:transparent;">
+              <span class="icon"><image src="../Menu/home.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspHome</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../my profile/viewprofile.php" style="background: #007bff; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
+              <span class="icon"><image src="../Menu/myprofile.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspprofile</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../Menu/logout.php">
+              <span class="icon"><image src="../Menu/logout.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbsplogout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  <script>
+        //add active class in selected tab
+        const list =document.querySelectorAll('.list');
+        function activeLink(){
+          list.forEach((item)=>
+          item.classList.remove('active'));
+          this.classList.add('active');
+
+        }
+        list.forEach((item)=>
+        item.addEventListener('click',activeLink))
+      </script>
+  </body>
+</html>

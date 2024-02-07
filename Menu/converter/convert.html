@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="create.css">
+    <style>
+        body {
+            background-image: url(Home.jpg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover; 
+        }
+        
+        #chooseFileButton {
+           
+            height: 65px;
+            width: 220px;
+           
+            background: linear-gradient(to right, purple, rgb(232, 72, 99));
+            border: none;
+            color: rgb(239, 236, 236);
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            font-family: "funky", sans-serif;
+            font-size: 20px;
+        }
+        #buttons{
+          display:flex;
+          margin-top:26%;
+          margin-left:6%;
+        }
+    </style>
+</head>
+<body>
+    <form action="convert.php" method="POST" enctype="multipart/form-data">
+		<input type="file" name="file" required accept=".jpg, .jpeg, .png, .gif, .html, .doc, .docx" style="display: none;" >
+    <div id="buttons">
+    <button id="chooseFileButton" Type="button">No file chosen</button>    
+    <input type="submit" value="Convert" style="background-color:green; font-size: 20px;font-weight: bold; font-family: 'funky', sans-serif; color:white; height:65px;width:105px; border-radius: 35%;">
+  </div>  
+  </form>
+   
+
+<script defer>
+    var chooseFileButton = document.getElementById('chooseFileButton');
+    var file = document.querySelector('input[type="file"]');
+
+    chooseFileButton.addEventListener('click', function() {
+        // Simulate a click on the file input
+        file.click();
+    });
+
+    file.addEventListener('change', function() {
+        if (file.files.length > 0) {
+            chooseFileButton.innerHTML = file.files[0].name;
+        } else {
+            chooseFileButton.innerHTML = "No file chosen";
+        }
+    });
+</script>
+<div id=bar>
+    <a style="position:absolute;color:#ddd; top:10px;" href="../menu.php">Back</a>
+		<h1 style="text-align: center; margin-top:5px;">FILE TO PDF</h1>
+</div>
+	<div class="navigation">
+        <ul>
+          <li class="list active">
+            <a href="../menu.php">
+              <span class="icon"><image src="../home.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspHome</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../../my profile/viewprofile.php">
+              <span class="icon"><image src="../myprofile.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbspprofile</span>
+            </a>
+          </li>
+          <li class="list">
+            <a href="../logout.php">
+              <span class="icon"><image src="../logout.png" height="40px" width="40px"></span>
+              <span class="title">&nbsp&nbsplogout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+  <script>
+        //add active class in selected tab
+        const list =document.querySelectorAll('.list');
+        function activeLink(){
+          list.forEach((item)=>
+          item.classList.remove('active'));
+          this.classList.add('active');
+
+        }
+        list.forEach((item)=>
+        item.addEventListener('click',activeLink))
+      </script>
+</body>
+</html>

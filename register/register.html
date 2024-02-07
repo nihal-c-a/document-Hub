@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>sign up</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="icon" href="../logo.png" type="image/x-icon">
+    <script  src="jquery-3.6.4.js"></script>
+    <script>
+      function checkPasswordMatch() {
+        var spanElement = document.getElementById("cpspan");
+        var password = document.getElementById("pass");
+        var confirmPassword = document.getElementById("cpass");
+      
+        if (password.value != confirmPassword.value) {
+          confirmPassword.setCustomValidity("Passwords do not match");
+          spanElement.innerHTML = "Password do no match";
+        } else {
+          confirmPassword.setCustomValidity("");
+          spanElement.innerHTML = "";
+        }
+      }
+      function validatePhone() {
+        var spanElement = document.getElementById("pnospan");
+  var phoneInput = document.getElementById("pno");
+  var str=new String(phoneInput.value)
+  if (str.length!=10) {
+    phoneInput.setCustomValidity("Enter the 10 digits phone number");
+    spanElement.innerHTML = "please enter 10 digits phone number";
+  } else {
+    phoneInput.setCustomValidity("");
+    spanElement.innerHTML = "";
+    
+  }
+  
+}
+function validatepin() {
+        var spanElement = document.getElementById("pinspan");
+  var pincode = document.getElementById("pcode");
+  var str=new String(pincode.value)
+  if (str.length!=6) {
+    pincode.setCustomValidity("Enter the valid area pincode");
+    spanElement.innerHTML = "Enter the valid area pincode";
+  } else {
+    pincode.setCustomValidity("");
+    spanElement.innerHTML = "";
+  }
+  
+}
+function validatePass() {
+  var spanElement = document.getElementById("pspan");
+  var pass = document.getElementById("pass");
+  var str=new String(pass.value)
+  if (str.length<8) {
+    pass.setCustomValidity("Password must be of alteast 8 characters");
+    
+spanElement.innerHTML = "please enter atleast 8 characters";
+
+  } else {
+    pass.setCustomValidity("");
+    spanElement.innerHTML = "";
+  }
+}
+function checkEmail(email) {
+  var emailInput = document.getElementById("email");
+  var spanElement = document.getElementById("espan");
+  $.ajax({
+    url: 'check.php',
+    type: 'POST',
+    data: {email: email},
+    success: function(response) {
+      if (response == 'exists') {
+        
+        emailInput.setCustomValidity("login with your email or try using different email");
+        spanElement.innerHTML = "Email already exists";
+      }else{
+        emailInput.setCustomValidity("");
+        spanElement.innerHTML = "";
+      }
+    }
+  });
+}
+function checkphone(pno) {
+  var phoneinput = document.getElementById("pno");
+  var spanElement = document.getElementById("pnospan");
+  $.ajax({
+    url: 'check.php',
+    type: 'POST',
+    data: {pno: pno},
+    success: function(response) {
+      if (response == 'exists') {
+        
+        phoneinput.setCustomValidity("please use your mobile number");
+        spanElement.innerHTML = "ooops!someone already has account with this phone number ";
+      }else{
+        phoneinput.setCustomValidity("");
+        spanElement.innerHTML = "";
+      }
+    }
+  });
+}
+
+
+
+
+      </script>
+  </head>
+  <body>
+    
+<form action="register.php" method="POST">
+  <div id="block">
+  <div id="form1">
+    <p id="heading">User register</p>
+    <div class="input-container">
+      <input type="text" name="fname" id="fname" placeholder=" "  pattern="[A-Za-z]+" required>
+      <label for="fname">First Name</label>
+    </div>
+
+    <div class="input-container">
+      <input type="text" name="lname" id="lname" pattern="[A-Za-z]+" placeholder=" " required>
+      <label for="lname">Last Name</label>
+
+    </div>
+
+    <div class="input-container">
+      <input type="email" name="email" id="email" placeholder=" " oninput="checkEmail(this.value)" required>
+      <label for="email">e-mail</label>
+      <span class="mySpan" id="espan"></span>
+    </div>
+
+    <div class="input-container">
+      <input type="Password" name="pass" id="pass" placeholder=" " required oninput="validatePass()">
+      <label for="pass">Set new Password</label>
+      <span class="mySpan" id="pspan"></span>
+    </div>
+
+    <div class="input-container">
+      <input type="password" name="cpass" id="cpass" placeholder=" " required oninput="checkPasswordMatch()">
+      <label for="cpass">confirm the password</label>
+      <span class="mySpan" id="cpspan"></span>
+    </div>
+
+    <div class="input-container">
+      <input type="number" name="pno" id="pno" placeholder=""  maxlength="10" required oninput="validatePhone()" onblur="checkphone(this.value)">
+      <label for="PhoneNumber">Phone number</label>
+      <span class="mySpan" id="pnospan"></span>
+    </div>
+
+    <div class="input-container">
+      <input type="text" name="adr" id="adr" placeholder=" " required>
+      <label for="adr">Address</label>
+    </div>
+
+    <div class="input-container">
+      <input type="number" name="pcode" id="pcode" placeholder=" " required oninput="validatepin()">
+      <label for="pcode">pin code</label>
+      <span class="mySpan" id="pinspan"></span>
+    </div>
+  </div>
+  <div id="box1">
+    <img src="../logo.png" alt="Description of image" width="100" height="100" id="ico" >
+    <input type="submit" value="sign up :)" id="sign" name="sign">
+    
+    <P class="agree">By signing in you agree to our terms and condition</P>
+    <a href="../login.php">back to login</a>
+  </div>
+</div>
+  </form>
+
+
+    
+  </body>
+</html>

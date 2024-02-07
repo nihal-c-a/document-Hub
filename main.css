@@ -1,0 +1,230 @@
+body{
+  align-items: center;
+    justify-content: center;
+    
+    font-family: sans-serif;
+    background-image:url("h1.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; 
+    
+  }
+       
+   #heading{
+    
+    text-align: center;
+    color: #0872c9;
+    font-weight: 700;
+    font-size:30px;
+    margin:0%
+   }    
+    
+   #block{
+    margin:auto;
+    margin-top: 80px;
+   
+    width: 660px;
+    height:560px;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   }
+   #box1{
+    font-size: small;
+    color: #f7f3f3;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 330px;
+    height:560px;
+    padding:10px;
+    border: 2px solid;
+    border-radius: 10px; 
+    
+    border-color: #0872c9 ;
+    background-color: #0872c9
+   }
+   #box1,#form1{
+    flex:1;
+   }
+       
+      /* Placeholder styles 
+  input::placeholder {
+    color: #999;
+    transition: all 0.3s ease-in-out;
+    transform: translateY(50%);
+  }
+  
+   Placeholder styles when input is not focused */
+  
+  
+  
+  
+  input:invalid {
+    border-color: red;
+    
+  }
+  input:invalid +label{
+    color:red;
+    font-size: 10px;
+    top: -10px;
+    color: #333;
+    
+  }
+  input:valid + label {
+    font-size: 10px;
+    top: -20px;
+    color: #333;
+    
+  }
+  /* Label styles when input is focused */
+  input:focus + label {
+    font-size: 18px;
+    top: -15px;
+    color: #0872c9;
+    
+  }
+  input:hover + label {
+    font-size: 18px;
+    top: -15px;
+    color: #0872c9;
+  }
+  
+  
+  /* Label styles */
+  label {
+    position: absolute;
+    top: 40px;
+    left: 10px;
+    padding-top: 5px;
+    font-size: 16px;
+    color: #999;
+    pointer-events: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Input styles */
+  input {
+    width: 300px;
+    height: 40px;
+    padding-left: 1%;
+    padding-bottom: 0px;
+    
+    border: none;
+    border-bottom: 2px solid #999999;
+    font-size: 16px;
+    background: transparent;
+    transition: all 0.3s ease-in-out;
+
+  }
+  
+  /* Input styles when focused */
+  input:focus {
+    outline: none;
+    border-bottom: none;
+    border-bottom: 2px solid #000407;
+  }
+  input:valid{
+    border-color: #0872c9 ;
+  }
+  
+  /* Input container styles */
+  .input-container {
+    position: relative;
+    margin:20px;
+  }
+  input:invalid{
+    animation:shake 300ms;
+    color:red;
+  
+  }
+  @keyframes shake {
+    25%{
+      transform:translateX(4px);
+
+    }
+    55%{
+      transform:translateX(4px);
+      
+    }
+    75%{
+      transform:translateX(4px);
+      
+    }
+    
+  }
+  #form1{
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 330px;
+    height:550px;
+    padding:10px;
+    border: 2px solid;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    
+    border-left-color: #000407;
+    background-color:rgba(246, 244, 244, 1)
+  }
+  
+  #sign{
+    
+    margin-top: 150px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .agree{
+    font-size: small;
+    color: #eef0f1;
+  }
+  #ico{
+    
+    margin-top:140px;
+  }
+  
+  .bcenter{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  #form2{
+    margin-top: 100px;
+    text-align: center;
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+    width: 330px;
+    height:350px;
+    padding:10px;
+    border: 2px solid;
+    border-radius: 5px;
+    border-color: #eef0f1;
+    background-color: aliceblue;
+  }
+  .btn{
+    border-radius: 20px;
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  }
+  .mySpan{
+    position: absolute;
+    color:red;
+    padding-bottom: 20px;
+    font-size: 10px;
+  }
+  #pspan{
+    position: absolute;
+    left:0%;
+    color:red;
+    padding-bottom: 20px;
+    font-size: 10px;
+  }

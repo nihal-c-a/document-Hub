@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+<link rel="icon" href="../../../logo.png" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="../../my document/mydoc.css">
+
+  <title>Text Editor</title>
+  <style type="text/css">
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-image:url('../canva/one.jpg');
+      Background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover; 
+      padding-top: 10%;
+    }
+    .container {
+      margin-left: 20%;
+      text-align: center;
+      align-items: center;
+      max-width: 60%;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #eee;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    .toolbar button {
+      border: none;
+      border-radius: 3px;
+      padding: 5px 10px;
+      margin-right: 10px;
+      background-color: #fff;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+    .toolbar button:hover {
+      background-color: #ddd;
+    }
+    .toolbar select {
+      border: none;
+      border-radius: 3px;
+      padding: 5px;
+      margin-right: 10px;
+      background-color: #fff;
+      cursor: pointer;
+    }
+    .toolbar input[type="color"] {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .textarea {
+      min-height: 300px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div id=bar>
+      <a style="position:absolute;color:#ddd; top:10px;" href="../create.html">Back</a>
+      <h1 style='margin-top:6px;'>My Memo</h1>;
+        </div>
+  <div class="container">
+    <div class="toolbar">
+      <select id="font-size">
+        <option value="12px">12</option>
+        <option value="14px">14</option>
+        <option value="16px">16</option>
+        <option value="18px">18</option>
+        <option value="20px">20</option>
+      </select>
+      <button id="bold"><image src="bold.png" height="10px" width="10px"></image></button>
+      <button id="italic" ><image src="italic.png" height="10px" width="10px"></image></button>
+      <button id="underline"><image src="underline.png" height="10px" width="10px"></image></button>
+      <button id="left"><image src="left.png" height="10px" width="10px"></image></button>
+      <button id="center"><image src="centered.png" height="10px" width="10px"></image></button>
+      <button id="right"><image src="right.png" height="10px" width="10px"></image></button>
+      <input type="color" id="color" value="#000000">
+      <select id="font-style">
+        <option value="Arial, sans-serif">Arial</option>
+        <option value="Times New Roman, serif">Times New Roman</option>
+        <option value="Courier New, monospace">Courier New</option>
+      </select>
+      <button id="save">Save</button>
+      <button id="cancel">Cancel</button>
+    </div>
+    <div class="textarea" contenteditable="true"></div>
+  </div>
+</body>
+</html>
+</div>
+<div class="navigation">
+      <ul>
+        <li class="list active">
+          <a href="../../menu.php">
+            <span class="icon"><image src="../../home.png" height="40px" width="40px"></span>
+            <span class="title">&nbsp&nbspHome</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="../../../my profile/viewprofile.php">
+            <span class="icon"><image src="../../myprofile.png" height="40px" width="40px"></span>
+            <span class="title">&nbsp&nbspprofile</span>
+          </a>
+        </li>
+        <li class="list">
+          <a href="../../logout.php">
+            <span class="icon"><image src="../../logout.png" height="40px" width="40px"></span>
+            <span class="title">&nbsp&nbsplogout</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+<script>
+      //add active class in selected tab
+      const list =document.querySelectorAll('.list');
+      function activeLink(){
+        list.forEach((item)=>
+        item.classList.remove('active'));
+        this.classList.add('active');
+
+      }
+      list.forEach((item)=>
+      item.addEventListener('click',activeLink))
+    </script>
+
+<script>
+
+    // Get all necessary elements
+const fontSizeSelect = document.getElementById("font-size");
+const boldButton = document.getElementById("bold");
+const italicButton = document.getElementById("italic");
+const underlineButton = document.getElementById("underline");
+const leftButton = document.getElementById("left");
+const centerButton = document.getElementById("center");
+const rightButton = document.getElementById("right");
+const colorInput = document.getElementById("color");
+const fontStyleSelect = document.getElementById("font-style");
+const saveButton = document.getElementById("save");
+const cancelButton = document.getElementById("cancel");
+const textarea = document.querySelector(".textarea");
+
+// Attach event listeners to toolbar buttons and inputs
+fontSizeSelect.addEventListener("change", () => {
+  textarea.style.fontSize = fontSizeSelect.value;
+});
+
+boldButton.addEventListener("click", () => {
+  document.execCommand("bold", false, null);
+});
+
+italicButton.addEventListener("click", () => {
+  document.execCommand("italic", false, null);
+});
+
+underlineButton.addEventListener("click", () => {
+  document.execCommand("underline", false, null);
+});
+
+leftButton.addEventListener("click", () => {
+  document.execCommand("justifyLeft", false, null);
+});
+
+centerButton.addEventListener("click", () => {
+  document.execCommand("justifyCenter", false, null);
+});
+
+rightButton.addEventListener("click", () => {
+  document.execCommand("justifyRight", false, null);
+});
+
+colorInput.addEventListener("change", () => {
+  document.execCommand("foreColor", false, colorInput.value);
+});
+fontStyleSelect.addEventListener("change", () => {
+  document.execCommand("fontName", false, fontStyleSelect.value);
+});
+
+saveButton.addEventListener("click", () => {
+  // Save the contents of the text area somewhere
+  var imageName = prompt("Enter the name for the image");
+  const link = document.createElement("a");
+  if (imageName !== null && imageName !== "") { 
+  link.download = imageName + ".txt";
+  link.href = "data:text/plain;charset=utf-8," + encodeURIComponent(textarea.innerHTML);
+  link.click();
+  }
+});
+
+cancelButton.addEventListener("click", () => {
+  // Clear the contents of the text area
+  textarea.innerHTML = "";
+});
+
+</script>
